@@ -78,9 +78,32 @@ public static class Program
                 if(meshHit.drawableID != -1)
                 {
                     hit = meshHit;
-                    data.setColor(pixel, new Vec3(1, 0, 1));
+                    data.setColor(pixel, getDebugColor(meshHit.drawableID));
                 }
             }
+        }
+    }
+
+    public static Vec3 getDebugColor(int triangleID)
+    {
+        switch (triangleID % 7)
+        {
+            case 0:
+                return new Vec3(0, 0, 1);
+            case 1:
+                return new Vec3(0, 1, 0);
+            case 2:
+                return new Vec3(0, 1, 1);
+            case 3:
+                return new Vec3(1, 0, 0);
+            case 4:
+                return new Vec3(1, 0, 1);
+            case 5:
+                return new Vec3(1, 1, 0);
+            case 6:
+                return new Vec3(1, 1, 1);
+            default:
+                return new Vec3();
         }
     }
 
